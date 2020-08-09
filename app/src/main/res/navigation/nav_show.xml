@@ -1,0 +1,13 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/shows_fragment">
+
+    <fragment
+        android:id="@+id/shows_fragment"
+        android:name="com.thernat.tvshows.ShowsFragment"
+        tools:layout="@layout/fragment_shows_list">
+
+    </fragment>
+
+</navigation>
