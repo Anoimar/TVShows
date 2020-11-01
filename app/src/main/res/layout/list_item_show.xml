@@ -5,40 +5,48 @@
 
     <data>
         <variable
-            name="imageUrl"
-            type="String"/>
+            name="show"
+            type="com.thernat.tvshows.data.model.Show"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <Space
+            android:id="@+id/top_space"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+        </Space>
+
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_left_side"
-            android:layout_width="120dp"
+            android:layout_width="160dp"
             android:layout_height="140dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             app:cardCornerRadius="16dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/top_space" />
 
         <ImageView
             android:id="@+id/image_poster"
             android:layout_width="120dp"
             android:layout_height="140dp"
             android:elevation="4dp"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/top_space"
             app:layout_constraintStart_toStartOf="@id/card_left_side"
             app:layout_constraintBottom_toBottomOf="@id/card_left_side"
-            app:imageFromUrl="@{imageUrl}"
+            app:imageFromUrl="@{show.image.medium}"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="16dp"
             />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_right_side"
-            android:layout_width="200dp"
+            android:layout_width="160dp"
             android:layout_height="0dp"
             android:layout_marginStart="1dp"
             app:layout_constraintBottom_toBottomOf="@id/card_left_side"
@@ -48,7 +56,7 @@
             app:layout_constraintTop_toTopOf="@id/card_left_side">
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
 
                 <TextView
                     android:id="@+id/tv_show_name"
@@ -58,11 +66,22 @@
                     android:layout_marginStart="8dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    style="@style/title_font" />
+                    android:text="@{show.name}"
+                    style="@style/title_text" />
+
+                <TextView
+                    android:id="@+id/tv_genre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="@id/tv_show_name"
+                    app:layout_constraintTop_toBottomOf="@id/tv_show_name"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:fromListStrings="@{show.genres}"
+                    style="@style/normal_text" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

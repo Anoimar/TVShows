@@ -15,11 +15,6 @@ interface ShowsService {
         @Query("q") query: String
     ): SearchShowResponse
 
-  /*  @GET("shows")
-    suspend fun shows(
-        @Query("page") page: String
-    ): SearchShowResponse*/
-
     companion object {
         private const val BASE_URL = "http://api.tvmaze.com/"
 

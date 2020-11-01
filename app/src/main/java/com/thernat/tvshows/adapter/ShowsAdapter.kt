@@ -11,7 +11,6 @@ class ShowsAdapter(private var shows: List<Show>) :
 
     override fun getItemCount() = shows.size
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShowViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ListItemShowBinding.inflate(inflater)
@@ -27,8 +26,7 @@ class ShowsAdapter(private var shows: List<Show>) :
 
         fun bind(show: Show) {
             binding.apply {
-                imageUrl = show.image.medium
-                tvShowName.text = show.name
+                this.show = show
                 executePendingBindings()
             }
         }
